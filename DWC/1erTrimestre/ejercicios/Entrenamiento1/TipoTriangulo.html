@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Desarrollar un programa que reciba como 
+        // entrada los tres lados de 
+        // un triángulo e indique si es
+        // válido o no lo es, y en caso de serlo,
+        // que indique qué tipo de triángulo es.
+        var entrada = prompt("Introduce los 3 lados del triángulo separados por comas (ej. 3,4,5):");
+        var lados = entrada.split(",").map(Number); // Convertir la entrada en un array de números
+
+        var a = lados[0];
+        var b = lados[1];
+        var c = lados[2];
+
+        if (a + b > c && a + c > b && b + c > a) {
+            
+            if (a === b && b === c) {
+                document.write("Es un triángulo equilátero");
+            } else if (a === b || b === c || a === c) {
+                document.write("Es un triángulo isósceles");
+            } else {
+                document.write("Es un triángulo escaleno");
+            }
+        } else {
+            
+            document.write("Los lados proporcionados no forman un triángulo válido");
+        }
+    </script>
+</body>
+</html>
