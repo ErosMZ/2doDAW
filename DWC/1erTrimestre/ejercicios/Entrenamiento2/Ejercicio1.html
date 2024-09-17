@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var elementos = prompt("Dime cuantos elementos quieres")
+        var elementosInt = parseInt(elementos)
+
+        var ArrayElem = [];
+
+        var x = 1;
+        while(x <= elementosInt){
+
+            var num = prompt("Dime el primer número")
+            var numInt = parseInt(num)
+            if(numInt >= 0 ){
+
+                ArrayElem.push(numInt)
+                x++
+            }else{
+
+                alert("Tiene que ser un número entero")
+
+            }
+
+        }
+
+        var MayorNum = Math.max(...ArrayElem);
+        document.write("El número mas alto es el " + MayorNum)
+    </script>
+</body>
+</html>
