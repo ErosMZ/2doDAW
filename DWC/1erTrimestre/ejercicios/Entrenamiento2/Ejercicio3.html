@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            var cont = 0
+            while(cont === 0){
+            var dni = prompt("Dime tu dni")
+            var dniArray= dni.split("")
+            var subDNIarray = dniArray.slice(0, 8) //cojo de la array los valores de el 0 al 8
+            var DNISinLetra= subDNIarray.join("")
+            var DNISinLetraInt= parseInt(DNISinLetra)
+            console.log(DNISinLetraInt)
+            var LetrasDNI= ["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"]
+            if(dniArray.length == 9){
+
+                var operacion = (DNISinLetraInt % 23)
+                if(LetrasDNI[operacion] === dniArray[8]){
+                    console.log("Es un dni verdadero")
+                    cont ++
+                }else(
+
+                    alert("DNI incorrecto prueba otra vez :(")
+
+                )
+                
+            }else{
+
+                alert("DNI incorrecto prueba otra vez :(")
+            }
+        
+        }
+
+
+        var count2= 0
+
+        while(count2 === 0){
+            var correo = prompt("Dime tu correo")
+            var variableCompravacionEmail= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+            
+            if (correo.match(variableCompravacionEmail)) {
+
+                console.log("Correo correcto")
+                count2++
+
+                } else {
+
+                alert("Correo inválido");
+
+            }
+        
+        }
+        
+    
+    
+        var count3 = 0
+
+        while(count3 === 0){
+
+            var telefono = prompt("Dime tu número de teléfono")
+            var telefArray = telefono.split("")
+            var Arrayletras= [
+            "a","b","c","d","e","f", "g", "h", "i","j","k","l"
+            ,"m","n" ,"ñ", "o", "p", "q", "r", "s" , "t", "u" , "v"
+            ,"w", "x ", "y", "x"
+            ] 
+            var ArraCaracteres = [
+            ' ', '.', ',', '!', '?', '@', '+', '-', '#', '$', '%', '&', '*', '/', '\\', '=', '<', '>', '^', '_', '`', '|', '~', ':', ';', '"', "'", '(', ')', '[', ']', '{', '}', '¿', '¡'
+            ];
+
+            if(telefArray.length === 9){
+                var contieneLetras = Arrayletras.some(letra => telefono.toLowerCase().includes(letra)) // comprueba si existe alguna letra aunq sea mayuscula o minuscula
+                var contieneCaracteres = ArraCaracteres.some(caracter => telefono.includes(caracter))
+                
+                if (contieneLetras || contieneCaracteres) {
+                    alert("El número contiene al menos una letra o carácter especial intentelo otra vez :(")
+                } else {
+                    console.log("La cadena no contiene ninguna letra ni carácter especial.")
+                    count3++
+                }
+            }else(
+
+                alert("Faltan números, intentelo otra vez :(")
+
+            )
+            
+        }   
+    </script>
+</body>
+</html>
