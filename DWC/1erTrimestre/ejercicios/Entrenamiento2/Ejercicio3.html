@@ -55,9 +55,7 @@
             }
         
         }
-        
-    
-    
+            
         var count3 = 0
 
         while(count3 === 0){
@@ -89,7 +87,50 @@
 
             )
             
-        }   
+        }  
+    
+        var count4 = 0
+        while(count4 === 0){
+
+            var ipValida= "^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$"; 
+            var ip = prompt("Dime la ip")
+
+            var ipSeparada= ip.split(".")
+            if(ipSeparada.length === 4){
+
+                if(ipSeparada[0]<=255 && ipSeparada[1]<=255 && ipSeparada[2]<=255 && ipSeparada[3]<=255){
+                    
+                    count4++
+                    console.log("Ip válida")
+                }else(
+
+                    alert("Ip erronea vuelvalo a intentar :(")
+                )
+            }else(
+
+                alert("Ip erronea vuelvalo a intentar :(")
+
+            )  
+        }
+
+        var count5 = 0;
+        while(count5 === 0){
+            var url = prompt("Dime la url")
+            var validarUrl= /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
+            
+            if (url.match(validarUrl)) {
+
+                console.log("URL válida")
+                count5++
+
+            } else {
+
+                alert("URL inválida");
+
+            }
+        }
+        
+
     </script>
 </body>
 </html>
