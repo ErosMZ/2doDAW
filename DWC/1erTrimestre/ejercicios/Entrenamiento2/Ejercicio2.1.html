@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function esFeliz(num){
+            var numString = num.toString()
+            var ArrayNum = numString.split("")
+            var cont = 0
+            var result = 0
+            
+            while (cont < 8) {
+                
+                if(cont == 0){
+                    for(var i = 0; i < ArrayNum.length; i++){
+                        var numeroArrayInt = parseInt(ArrayNum[i])
+                        var operacion = numeroArrayInt * numeroArrayInt
+                        result += operacion
+                    }
+                } else {
+                    var resultString = result.toString()
+                    var resultArray = resultString.split("")
+                    result = 0
+                    for(var i = 0; i < resultArray.length; i++){
+                        var numeroArrayInt = parseInt(resultArray[i])
+                        var operacion = numeroArrayInt * numeroArrayInt
+                        result += operacion
+                    }
+                }
+                
+                
+                if (result == 1) {
+                    infeliz = 0
+                    break
+                }
+
+                cont++
+            }
+
+            if(result == 1){
+               
+                return true
+            } else {
+                
+                return false
+            }
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var cont = 0
+        var numero = 1
+        while(cont < 6){
+            if(esFeliz(numero)){
+                cont++
+                document.write("Número feliz: " + numero + "<br>")
+            }
+            numero++
+        }
+    </script>
+</body>
+</html>
