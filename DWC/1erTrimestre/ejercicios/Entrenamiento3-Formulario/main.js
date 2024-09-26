@@ -1,5 +1,4 @@
 
-
  document.getElementById("dni").addEventListener("blur", function(){
     var varDNI = document.getElementById("dni").value
     
@@ -9,7 +8,7 @@
     }else{
 
         var labelDNI = document.getElementById("dni").style.border = "1px solid #b3d1ff";
-
+        
     }
     
  })
@@ -42,7 +41,10 @@
     }
 
  })
-
+ 
+ // validar contraseña
+ var contra = ""
+ var PasswordValidada = 0;
  document.getElementById("password").addEventListener("blur", function(){
 
     var varPassw = document.getElementById("password").value
@@ -50,9 +52,72 @@
         var labelPassw = document.getElementById("password").style.border = "1px solid red";
     }else{
         var labelPassw = document.getElementById("password").style.border = "1px solid #b3d1ff";
+        PasswordValidada = 1
+        contra = varPassw
     }
 
  })
+
+function validarContrasena(contrasena){
+
+    const caracteresPermitidos = [
+        ...Array.from("abcdefghijklmnopqrstuvwxyz"), 
+        ...Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 
+        ...Array.from("0123456789"),                   
+        ...Array.from("!@#$%^&*()_+[]{}|;':\",.<>?/`~") 
+    ];
+
+    const contieneMinusc = /[a-z]/.test(contrasena)
+    const contieneMayusc = /[A-Z]/.test(contrasena)
+    const contieneDigito = /\d/.test(contrasena)
+    const contieneEspecial = /[!@#$%^&*()_+[\]{}|;':",.<>?`~]/.test(contrasena)
+    
+    if(!contrasena.length >= 8){
+        return false
+    }
+
+    if (!contieneMinusc || !contieneMayusc || !contieneDigito || !contieneEspecial) {
+        alert("La contraseña debe contener al menos una letra minúscula, una letra mayúscula, un dígito y un carácter especial.");
+        return false;
+    }
+
+    
+
+    for (let i = 0; i < contrasena.length; i++) {
+        if (!caracteresPermitidos.includes(contrasena[i])) {
+            alert("La contraseña contiene caracteres no permitidos.");
+            return false;
+        }
+    }
+    return true;
+}
+
+ document.getElementById("repeat-password").addEventListener("blur", function(){
+     
+    var varContRep = document.getElementById("repeat-password").value
+    if(!validarPasswordRepetida(varContRep)){
+        var labelNom = document.getElementById("repeat-password").style.border = "1px solid red";
+    }else{
+        var labelNom = document.getElementById("repeat-password").style.border = "1px solid #b3d1ff";
+        
+    }
+ })
+ function validarPasswordRepetida(contraa) {
+
+    if (PasswordValidada == 0) {
+        alert("Rellena primero la contraseña");
+        return false;
+    }
+    
+
+    if (contraa != contra) {
+        alert("Las contraseñas no coinciden");
+        return false;
+    }
+    
+    // Si todo es correcto, retornar true
+    return true;
+}
  document.getElementById("nombre").addEventListener("blur", function(){
 
     var varNom = document.getElementById("nombre").value
@@ -63,6 +128,7 @@
     }
 
  })
+
   // Función para validar el DNI
  function validarDNI(dni) {
     var dniArray = dni.split("");
@@ -157,40 +223,7 @@ function validarURL(url) {
         return false;
     }
 }
-// validar contraseña
-function validarContrasena(contrasena){
 
-    const caracteresPermitidos = [
-        ...Array.from("abcdefghijklmnopqrstuvwxyz"), 
-        ...Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 
-        ...Array.from("0123456789"),                   
-        ...Array.from("!@#$%^&*()_+[]{}|;':\",.<>?/`~") 
-    ];
-
-    const contieneMinusc = /[a-z]/.test(contrasena)
-    const contieneMayusc = /[A-Z]/.test(contrasena)
-    const contieneDigito = /\d/.test(contrasena)
-    const contieneEspecial = /[!@#$%^&*()_+[\]{}|;':",.<>?`~]/.test(contrasena)
-    
-    if(!contrasena.length >= 8){
-        return false
-    }
-
-    if (!contieneMinusc || !contieneMayusc || !contieneDigito || !contieneEspecial) {
-        alert("La contraseña debe contener al menos una letra minúscula, una letra mayúscula, un dígito y un carácter especial.");
-        return false;
-    }
-
-    
-
-    for (let i = 0; i < contrasena.length; i++) {
-        if (!caracteresPermitidos.includes(contrasena[i])) {
-            alert("La contraseña contiene caracteres no permitidos.");
-            return false;
-        }
-    }
-    return true;
-}
 
 function validarNombre(nombre){
     var ArrayyCaracteres = [' ', '.', ',', '!', '?', '@', '+', '-', '#', '$', '%', '&', '*', '/', '\\', '=', '<', '>', '^', '_', '`', '|', '~', ':', ';', '"', "'", '(', ')', '[', ']', '{', '}', '¿', '¡'];
@@ -218,7 +251,22 @@ function validarNombre(nombre){
         cont2++
     }
     return siOno
-}
 
+}
+function validarApellidos(){
+    var ArrayyCaracteres = [' ', '.', ',', '!', '?', '@', '+', '-', '#', '$', '%', '&', '*', '/', '\\', '=', '<', '>', '^', '_', '`', '|', '~', ':', ';', '"', "'", '(', ')', '[', ']', '{', '}', '¿', '¡'];
+    var ArrayNums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var cont = 0;
+    
+    //  CONTINUAR \\
+    //  CONTINUAR \\
+    //  CONTINUAR \\
+    //  CONTINUAR \\
+    //  CONTINUAR \\
+    //  CONTINUAR \\
+    //  CONTINUAR \\
+
+
+}
 
 
