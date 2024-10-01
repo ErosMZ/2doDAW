@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/my-handling-form-page" method="post">
+          
+            <label for="name">Nombre:</label>
+            <br>
+            <input type="text" id="nombre" name="nombre" required/>
+            <br>
+            <label for="email">Correo electrónico:</label>
+            <br>
+            <input type="text" id="email" name="nombre" required/>
+            <br>
+            <label for="msg">DNI</label>
+            <br>
+            <input id="DNI" name="DNI" required></input>
+            <br>
+            <br>
+            <select id="desplegable">
+                <option value="listaBlanco"></option>
+                <option value="lista1">lista1</option>
+                <option value="lista2">lista2</option>
+            </select>
+            <input type="button" value="Copiar" id="boton"/>
+        </form>
+        <script src="main.js"></script>
+</body>
+<br>
+
+    <div id="listado1">
+            <h1>Lista 1</h1>
+            <p>
+                
+            </p>
+    </div>
+
+    <div id="listado2">
+        <h1>Lista 2</h1>
+        <p>
+            
+        </p>
+    </div>
+
+</html>
