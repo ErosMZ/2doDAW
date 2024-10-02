@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function feliz(num) {
+            var numStr = num.toString();
+            var numeroSep = numStr.split("");
+            
+            var result = 0;
+            var cont = 1;
+            while (cont <= 8) {
+
+                if (result == 0) {
+                    // Primera vez, calcular con el número original
+                    for (var x = 0; x < numeroSep.length; x++) {
+                        result += parseInt(numeroSep[x]) * parseInt(numeroSep[x]);
+                    }
+                } else {
+                    // Calcular con el resultado anterior
+                    var resultStr = result.toString();
+                    var resultSplit = resultStr.split("");
+                    
+                    result = 0;
+                    for (var i = 0; i < resultSplit.length; i++) {
+                        var digito = parseInt(resultSplit[i]);
+                        result += digito * digito;
+                    }
+                }
+
+                // Si el resultado es 1, es un número feliz
+                if (result == 1) {
+                    document.write("El número " + num + " es feliz :)<br>");
+                    return;  // Termina la función porque ya sabemos que es feliz
+                } else {
+                    cont++;
+                }
+            }
+
+            // Si después de 8 iteraciones no es feliz, es infeliz
+            document.write("El número " + num + " es infeliz :(<br>");
+        }
+    </script>
+</head>
+<body>
+    <script>
+        // Llamar a la función para los números del 1 al 30
+        for (var i = 1; i <= 30; i++) {
+            feliz(i);
+        }
+    </script>
+</body>
+</html>
