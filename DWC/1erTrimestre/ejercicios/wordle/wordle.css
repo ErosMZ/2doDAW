@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #f4f4f4; /* Color de texto claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #2c2c2c; /* Fondo del contenedor */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #f4f4f4; /* Color de texto claro */
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px; /* Espacio entre filas */
+}
+
+.tile {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333; /* Bordes oscuros */
+    border-radius: 5px;
+    background-color: #444; /* Color de fondo de los cuadrados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    margin: 0 2px; /* Espacio entre los cuadrados */
+    transition: background-color 0.3s;
+    color: #000000; /* Color de texto claro */
+}
+
+.tile.correct {
+    background-color: #6aaa64; /* Verde para letras correctas */
+}
+
+.tile.wrong {
+    background-color: #f03e3e; /* Rojo para letras incorrectas */
+}
+
+.tile.present {
+    background-color: #c9b458; /* Amarillo para letras presentes pero en la posición incorrecta */
+}
+
+.keyboard {
+    margin-top: 10px;
+}
+
+.row {
+    margin-bottom: 5px; /* Espacio entre filas del teclado */
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    margin: 3px; /* Espacio entre las teclas */
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #555; /* Color de fondo de las teclas */
+    color: #f4f4f4; /* Color de texto claro */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.key:hover {
+    background-color: #777; /* Cambia color al pasar el ratón */
+}
+
+.key:active {
+    background-color: #888; /* Cambia color al presionar */
+}
+
+/* Sombra cuando se presiona una tecla */
+.sombraInt {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
