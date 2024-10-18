@@ -96,8 +96,9 @@
     </p>
 
     <!-- Botón de Enviar -->
-    <p>
+   <p>
         <input value="Enviar" type="submit" name="boton-enviar" id="boton-enviar">
+        <input value="Limpiar" type="reset" name="boton-limpiarr" id="boton-limpiar">
     </p>
 
     </form>
