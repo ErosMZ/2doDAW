@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -60,13 +51,13 @@
 
     <!-- Campo de Provincia -->
     <p>
-        <label for="provincia">Selecciona tu provincia: </label><br>
+        <label for="provincia">Provincia</label><br>
         <select name="provincia" id="provincia" >
             <option value="">Seleccione su provincia</option>
-            <option value="alicante">Alicante</option>
-            <option value="castellon">Castellón</option>
-            <option value="valencia">Valencia</option>
-        </select>
+            <option value="Alicante">Alicante</option>
+            <option value="Castellón">Castellón</option>
+            <option value="Valencia">Valencia</option>
+        </select>>
     </p>
     <!-- Campo Situacion -->
     <p>
@@ -78,17 +69,19 @@
             <option value="otro">Otro</option>
         </select>
     </p>
-    <!-- Casilla de recibir información -->
-    <p>
-        <input type="checkbox" name="recibir-informacion" value="recibir-informacion" id="recibir-informacion" >
-        <label for="recibir-informacion">Deseo recibir información sobre novedades y ofertas</label>
-    </p>
 
     <!-- Casilla comentarios -->
     <p>
         <label for="comentarios">Escribe tus comentarios:</label>
         <textarea id="comentarios" name="comentarios" rows="6" cols="60"></textarea>
     </p>
+
+    <!-- Casilla de recibir información -->
+    <p>
+        <input type="checkbox" name="recibir-informacion" value="recibir-informacion" id="recibir-informacion" checked>
+        <label for="recibir-informacion">Deseo recibir información sobre novedades y ofertas</label>
+    </p>
+
     <!-- Casilla de aceptación de condiciones -->
     <p>
         <input type="checkbox" name="chekeo-leido" id="chekeo-leido" >
@@ -102,9 +95,6 @@
     </p>
 
     </form>
-
-</body>
-</html>
 
 </body>
 </html>
