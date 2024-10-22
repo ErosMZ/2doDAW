@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de las pelotas Eros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="encabezado">
+        <p id="cronometro" class="divCronometro">00:00:00</p>
+        <div class="puntos">
+            <div class="puntosAzules">0</div>
+            <div class="puntosRojos">0</div>
+            <div class="color"></div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="contenedor">
+            <div class="opciones">
+                <label for="numPelotas">Selecciona el número de pelotas:</label>
+                <input id="numPelotas" type="number" value="10" min="1">
+            </div>
+            <div class="modos">
+                 <p>Elige el modo:</p>
+                <button id="eliminarTodo" class="boton">Eliminar todas las pelotas</button>
+                <br>
+                <br>
+                <button id="eliminarColor" class="boton">Eliminar un solo color</button>
+            </div>
+            <button id="jugar" class="jugar">Jugar</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
