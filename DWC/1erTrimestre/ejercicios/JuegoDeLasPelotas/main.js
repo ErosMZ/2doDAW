@@ -59,7 +59,7 @@ function jugar(pelotas) {
             
             var randomtamano2 = (Math.random() * 50 + 30);
             var randomTop2 = Math.floor(Math.random() * (700 - 75 + 1)) + 50;
-            var randomLeft2 = Math.floor(Math.random() * (950 - 75 + 1)) + 1;
+            var randomLeft2 = Math.floor(Math.random() * (990 - 75 + 1)) + 1;
             
             console.log(randomtamano);
 
@@ -145,7 +145,7 @@ function jugar(pelotas) {
             
             var randomtamano2 = (Math.random() * 50 + 30);
             var randomTop2 = Math.floor(Math.random() * (700 - 75 + 1)) + 50;
-            var randomLeft2 = Math.floor(Math.random() * (950 - 75 + 1)) + 1;
+            var randomLeft2 = Math.floor(Math.random() * (990 - 75 + 1)) + 1;
             console.log(randomtamano);
             const nuevoDiv = document.createElement('div');
             const nuevoDiv2 = document.createElement('div');
