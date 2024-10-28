@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function extraer(frase, num, orden) {
+            if (orden === "fin") {
+                
+                return frase.slice(-num); // slice para coger unos caracteres 
+                                        // en este caso empieza por el final por el -
+            } else if (orden === "ini") { 
+                return frase.slice(0, num);
+            } else {
+                return "Valores incorrectos";
+            }
+        }
+    </script>
+</head>
+<body>
+    <script>
+        document.write(extraer("Cristiano Ronaldo Apesta", 4, "fin"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+        function nombreMes(fecha){
+            var Meses = ["Enere", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"
+            ];
+            var fechaString= fecha.toString()
+            var fechaSeparada= fechaString.split("/")
+            var mes = fechaSeparada[1] -1
+
+            return monthNames[Meses]
+        }
+
+    </script>
+</head>
+<body>
+    <script>
+        document.write(nombreMes("10/11/2009"))
+        
+    </script>
+</body>
+</html>
