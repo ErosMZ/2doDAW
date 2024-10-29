@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            // Desarrollar un programa que reciba como entrada 4
+            //  números y los ordene de menor a mayor.
+
+            var numero = prompt("Dime los números: ")
+            
+            if(numero.includes(",")){
+
+                var numSepArr = numero.split(",")
+                numSepArr.sort()
+                document.write(numSepArr)
+
+            }else if(numero.includes(" ")){
+
+                var numSepArr = numero.split(".")
+                numSepArr.sort()
+                document.write(numSepArr)
+
+            }else(
+
+                document.write("Números inválidos")
+
+            )
+
+    </script>
+</body>
+</html>

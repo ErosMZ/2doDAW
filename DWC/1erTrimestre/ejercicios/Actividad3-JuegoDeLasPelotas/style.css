@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+/* Encabezado */
+.encabezado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 70px;
+    padding: 10px;
+    background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.divCronometro {
+    font-size: 26px;
+    color: #00e0ff;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.puntos {
+    display: flex;
+    gap: 10px;
+}
+
+.puntosAzules, .puntosRojos {
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.puntosAzules {
+    font-size: 30px;
+    background-color: #00e0ff;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.puntosRojos {
+    font-size: 30px;
+    background-color: #ff006e;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+
+/* Contenedor */
+.contenedor {
+    background-color: #2d2d44;
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    margin: 70px auto 0;
+}
+
+.main {
+    width: 1000px;
+    height: 750px;
+    background: linear-gradient(135deg, #1e1e2f, #0f0c29);
+    padding: 15px;
+    margin-top: 70px;
+    border-radius: 15px;
+}
+
+/* Estilos de botones */
+.boton, .jugar {
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #6d83f2, #4b4bf8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.boton:hover, .jugar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #4b4bf8;
+}
+
+.jugar {
+    background: linear-gradient(90deg, #2de2e6, #22bbf7);
+}
+
+.jugar:hover {
+    box-shadow: 0 0 20px #2de2e6;
+}
+
+/* Efecto de selección */
+.opcionSeleccionada {
+    border: 3px solid #0ff;
+}
+
+/* Texto final */
+.textoFinal {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    color: #e0e0e0;
+    background-color: #3a0ca3;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    animation: win-glow 1.5s infinite alternate;
+}
+
+@keyframes win-glow {
+    0% { box-shadow: 0 0 20px #ff00ff; }
+    100% { box-shadow: 0 0 40px #00e0ff; }
+}
+
+/* Botón final */
+.botonFinal {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: #fff;
+    background: linear-gradient(90deg, #7b2cbf, #9d4edd);
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    max-width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.botonFinal:hover {
+    background: linear-gradient(90deg, #9d4edd, #7b2cbf);
+    box-shadow: 0 0 20px #9d4edd;
+}
+
+div[class^="divClase"]:hover {
+    border-color: #00e0ff; /* Cambia el color del borde */
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    transition: transform 0.3s, border-color 0.3s; /* Suaviza la transición */
+}
+
+/* Estilo de hover para nuevoDiv2 */
+div[class^="divClaseDos"]:hover {
+    border-color: #ff006e; /* Cambia el color del borde */
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+    transition: transform 0.3s, border-color 0.3s; /* Suaviza la transición */
+}
