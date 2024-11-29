@@ -1,0 +1,9 @@
+.valido {
+    color: green;
+    font-weight: bold;
+}
+
+.invalido {
+    color: red;
+    font-weight: bold;
+}
