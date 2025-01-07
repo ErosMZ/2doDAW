@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url(videos/fondoTroll.jpg);
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    color: #00aaff; /* Azul retro */
+    text-shadow: 0 0 5px #00aaff; /* Sombra azul */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    border: 4px solid #00aaff; /* Borde azul */
+    padding: 20px;
+    width: 700px;
+    background-color: #001122; /* Fondo azul oscuro */
+    box-shadow: 0 0 20px #00aaff; /* Sombra azul */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    color: #00aaff; /* Azul */
+}
+
+.video-controls {
+    text-align: center;
+}
+
+.buttons {
+    margin-bottom: 10px;
+}
+
+button {
+    background: none;
+    border: 2px solid #00aaff; /* Borde azul */
+    color: #00aaff; /* Texto azul */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    padding: 5px;
+    margin: 5px;
+    text-shadow: 0 0 3px #00aaff; /* Sombra azul */
+    cursor: pointer;
+    box-shadow: 0 0 10px #00aaff; /* Sombra exterior azul */
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #00aaff; /* Fondo azul sólido al pasar el mouse */
+    color: #fff; /* Texto blanco */
+    text-shadow: none;
+}
+
+video {
+    border: 2px solid #00aaff; /* Borde azul */
+    box-shadow: 0 0 15px #00aaff; /* Sombra azul */
+}
+
+footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #00aaff;
+}
+
+.video-selection {
+    text-align: center;
+    margin-top: 10px;
+    border-top: 2px solid #00aaff; /* Línea separadora azul */
+    padding-top: 10px;
+}
+
+.video-selection button {
+    background: none;
+    border: 2px solid #00aaff; /* Borde azul */
+    color: #00aaff; /* Texto azul */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    padding: 5px;
+    margin: 5px;
+    text-shadow: 0 0 3px #00aaff; /* Sombra azul */
+    cursor: pointer;
+    box-shadow: 0 0 10px #00aaff; /* Sombra exterior azul */
+    transition: 0.3s;
+}
+
+.video-selection button:hover {
+    background-color: #00aaff; /* Fondo azul sólido */
+    color: #fff; /* Texto blanco */
+    text-shadow: none;
+}

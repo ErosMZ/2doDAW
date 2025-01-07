@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Video Player Valorant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Meme Retro Interface</h1>
+        </header>
+        <section class="video-controls">
+            <div class="buttons">
+                <button id="play-stop">Play/Stop</button>
+                <button id="rewind">-10 seg</button>
+                <button id="forward">+10 seg</button>
+                <button id="restart">Reiniciar</button>
+                <button id="vol-up">+ Vol</button>
+                <button id="vol-down">- Vol</button>
+                <button id="mute">Silenciar</button>
+            </div>
+            <video id="video" width="640" height="360" controls>
+                <source src="videos/Elríounamierda.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+        </section>
+
+        <div class="video-selection">
+            <button id="video1">Video 1</button>
+            <button id="video2">Video 2</button>
+        </div>
+        <script src="main.js"></script>
+    </div>
+</body>
+</html>
