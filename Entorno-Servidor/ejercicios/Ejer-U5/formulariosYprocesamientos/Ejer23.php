@@ -11,61 +11,59 @@
         }
     </style>
     <?php
+    $errores = []; // Asegúrate de que $errores siempre esté definido como un arreglo.
 
-        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["boton-enviar"])) {
-            
-            $errores= [];
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["boton-enviar"])) {
+        $nombre = $_GET["nombre"];
+        $email = $_GET["email"];
+        $edad = $_GET["edad"];
+        $estudios = $_GET["estudios"];
+        $situacion = $_GET["situacion"] ?? []; // si estuviera vacio seria una array vacia
+        $hobbies = $_GET["hobbies"] ?? [];
+        $otroHobbie = $_GET["otroHobbie"] ?? "";
 
-            $nombre = $_GET["nombre"];
-            $email = $_GET["email"];
-            $edad = $_GET["edad"];
-            $estudios = $_GET["estudios"];
-            $situacion = $_GET["situacion"] ?? []; // si estuviera vacio seria una array vacia
-            $hobbies = $_GET["hobbies"] ?? [];
-            $otroHobbie = $_GET["otroHobbie"] ?? "";
+        if (empty($nombre)) {
+            $errores["usuario"] = "El nombre de el usuario esta vacio";
+        } elseif (strlen($nombre) < 3) {
+            $errores["usuario"] = "El nombre tiene que tener mínimo 3 caracteres";
+        }
 
-            if (empty($nombre)) {
-                $errores["usuario"] = "El nombre de el usuario esta vacio";
-            }elseif (strlen($nombre) < 3) {
-                $errores["usuario"] = "El nombre tiene que tener mínimo 3 caracteres";
-            }
+        if (empty($email)) {
+            $errores["email"] = "El correo electrónico esta vacío.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errores["email"] = "El formato del correo electrónico no es válido.";
+        }
 
-            if (empty($email)) {
-                $errores["email"] = "El correo electrónico esta vacío.";
-            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errores["email"] = "El formato del correo electrónico no es válido.";
-            }
+        if (empty($edad)) {
+            $errores["edad"] = "El campo edad esta vacío";
+        } elseif (!is_numeric($edad)) {
+            $errores["edad"] = "Tiene que ser un valor numérico";
+        }
 
-            if (empty($edad)) {
-                $errores["edad"] = "El campo edad esta vacío";
-            }elseif (!is_numeric($edad)) {
-                $errores["edad"] = "Tiene que ser un valor numérico";
-            }
+        if ($estudios == " ") {
+            $errores["estudios"] = "Selecciona algún nivel de estudio";
+        }
 
-            if ($estudios == " ") {
-                $errores["estudios"] = "Selecciona algún nivel de estudio";
-            }
+        if (empty($situacion)) {
+            $errores["situacion"] = "Selecciona alguna opción";
+        }
 
-            if (empty($situacion)) {
-                $errores["situacion"] = "Selecciona alguna opción";
-            }
+        if (empty($hobbies) && empty($otroHobbie)) {
+            $errores["hobbies"] = "Selecciona algún hobbie o escribe uno";
+        }
 
-            if (empty($hobbies) && empty($otroHobbie)) {
-                $errores["hobbies"] = "Selecciona algún hobbie o escribe uno";
-            }
-        }   
-
+        // Solo redirige si no hay errores y el formulario fue enviado correctamente.
         if (empty($errores)) {
-            header("Location: resultado23.php?nombre=" . urlencode($nombre) . "&email=" . urlencode($email) . "&edad=" . urlencode($edad) . "&estudios=" . urlencode($estudios) . "&situacion=" . urlencode(implode(",", $situacion)) . "&hobbies=" . urlencode(implode(",", $hobbies)) . "&otroHobbie=" . urlencode($otroHobbie));
+            header("Location: resultado23.php?nombre=" . urlencode($nombre) . "&email=" . urlencode($email) . "&edad=" . urlencode($edad) . "&estudios=" . urlencode($estudios) . "&situacion=" . urlencode($situacion) . "&hobbies=" . urlencode($hobbies) . "&otroHobbie=" . urlencode($otroHobbie));
             exit;
         }
-        
+    }
+?>
 
-    ?>
 
 </head>
 <body>
-    <form action="Ejer23.php" method="get">
+    <form action="Ejer23.php" method="GET">
         <p>
             <label for="">Nombre: </label>
             <input type="text" name="nombre" id="nombre">
