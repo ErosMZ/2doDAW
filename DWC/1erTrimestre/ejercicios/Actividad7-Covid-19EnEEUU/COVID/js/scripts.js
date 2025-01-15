@@ -1,11 +1,18 @@
-// Selecciona todos los elementos <area>
-const areaElements = document.querySelectorAll("area");
+var areaElements = document.querySelectorAll("area");
 
-console.log("dsd")
-// Itera sobre cada elemento y agrega un evento "click"
 areaElements.forEach(area => {
+    
     area.addEventListener("click", function() {
-        const titleValue = area.getAttribute('title');
-        alert(titleValue);
+        
+        var modal = document.getElementById("modal")
+        var tituloModal = document.getElementById("titulo");
+
+        modal.classList.remove("oculto");
+
+        var titulo = area.getAttribute("title");
+
+        tituloModal.innerText = titulo;
+
     });
 });
+
