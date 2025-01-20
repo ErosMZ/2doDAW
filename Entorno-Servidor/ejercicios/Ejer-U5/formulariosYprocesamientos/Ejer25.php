@@ -11,15 +11,15 @@
         $idiomas = $_POST["idiomas"] ?? [];
         $email = $_POST["email"];
         $foto = $_FILES["foto"] ?? null;
-
+        $directorio = "imagen/";
         
 
         if (preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/u", $nombre)) {
             $palabras = explode(" ", trim($nombre));
-            if (count($palabras) >= 3) {
+            if (count($palabras) >= 2) {
                 $valido["nombre"] = "El nombre es válido.";
             } else {
-                $errores["nombre"] = "Tiene que ser nombre y dos apellidos.";
+                $errores["nombre"] = "El campo nombre debe de tener minimo nombre y un apellido.";
             }
         } else {
             $errores["nombre"] = "El nombre contiene caracteres inválidos.";
@@ -63,10 +63,53 @@
             $valido["email"] = "El campo email es válido";
         }
 
-           if (isset($_POST["boton-enviar"]) && empty($errores)) {
-                header("Location: resultado23.php?nombre=" . urlencode($_POST['nombre'] ));
-                exit(); 
+        if (!is_dir($directorio)) {
+            mkdir($directorio);
+
+        }
+        $nombreCompleto = $directorio . $_FILES["foto"]["name"];
+
+        $partes = explode(".", $_FILES["foto"]["name"]);
+        $extension = strtolower(end($partes));
+
+        $arrayExt = ["jpg" , "png", "jpeg"];
+
+        if (!in_array($extension , $arrayExt)) {
+            $errores["foto"] = "La foto no tiene extension correcta";
+        }else{
+            move_uploaded_file($_FILES["foto"]["tmp_name"], $nombreCompleto);
+        }
+
+        if ( isset($_POST["validar"])) {
+            
+            foreach ($errores as  $error) {
+                echo  "<div class='error'>" . "<li>"   . $error . "</li>" . "</div>";
             }
+        }
+
+        if (isset($_POST["boton-enviar"]) && empty($errores)) {
+            header("Location: resultado25.php?nombre=" . urlencode($nombre) . "&contrasena=" . urldecode($contrasena) . "&estudios=" . urldecode($estudios) . "&nacionalidad=" . urldecode($nacionalidad) . "&email=" . urldecode($email) ."&idiomas=" . urldecode($idiomasStr));
+            exit(); 
+        }
+
+        // si hay erroes y le das a enviar te muestra un mensaje
+        if (isset($_POST["boton-enviar"]) && !empty($errores)) {
+            echo "<p><strong>" . "<div class ='error'>" . "Hay datos inválidos prueba con el botón de validar para saber cuales son</strong>" . "</div>";
+
+        }
+
+        if (isset($_POST["validar"]) && empty($errores)) {
+            echo "<p><strong>" . "<div class ='valido'>" ."Es formulario esta correcto</strong> " . "</div>";
+
+        }
+
+        if (isset($_POST["validar"]) && !empty($errores)) {
+            echo "<p><strong>" . "<div class ='error'>" ."Es formulario esta incorrecto</strong> " . "</div>";
+
+        }
+
+        
+
         
     }
 ?>
@@ -95,24 +138,12 @@
 
     <label for="">Nombre completo:</label>
         <input type="text" name="nombre" value="<?php echo isset($_POST["nombre"]) ? htmlspecialchars($_POST["nombre"]) : ""; ?>">
-        <?php
-            if (isset($errores["nombre"])) {
-                echo "<div class='error'>" . $errores["nombre"] . "</div>";
-            } elseif (isset($valido["nombre"])) {
-                echo "<div class='valido'>" . $valido["nombre"] . "</div>";
-            }
-        ?>
+       
         <br><br>
 
         <label for="contrasena">Contraseña:</label>
         <input type="password" name="contrasena" value="<?php echo isset($_POST["contrasena"]) ? htmlspecialchars($_POST["contrasena"]) : ""; ?>">
-        <?php
-            if (isset($errores["contrasena"])) {
-                echo "<div class ='error'>" .$errores["contrasena"] . "</div>";
-            }elseif (isset($valido["contrasena"])) {
-                echo "<div class ='valido'>" .$valido["contrasena"] . "</div>";
-            }
-        ?>
+        
         <br><br>
 
         <label for="estudios">Nivel de estudios:</label>
@@ -123,25 +154,13 @@
             <option value="Formación Profesional"<?php echo isset($_POST["estudios"]) && $_POST["estudios"] == "Formación Profesional" ? "selected" : ""?>>Formación Profesional</option>
             <option value="Estudios Universitarios"<?php echo isset($_POST["estudios"]) && $_POST["estudios"] == "Estudios Universitarios" ? "selected" : ""?>>Estudios Universitarios</option>
         </select>
-        <?php
-            if (isset($errores["estudios"])) {
-                echo "<div class ='error'>" .$errores["estudios"] . "</div>";
-            }elseif (isset($valido["estudios"])) {
-                echo "<div class ='valido'>" .$valido["estudios"] . "</div>";
-            }
-        ?>
+        
         <br><br>
 
         <label for="nacionalidad">Nacionalidad</label>
         <input type="radio" name="nacionalidad" value="Española" <?php echo (isset($_POST["nacionalidad"])) && $_POST["nacionalidad"] == "Española" ? "checked" : "";?>> Española
         <input type="radio" name="nacionalidad" value="Otra" <?php echo (isset($_POST["nacionalidad"])) && $_POST["nacionalidad"] == "Otra" ? "checked" : "";?>> Otra
-        <?php
-            if (isset($errores["nacionalidad"])) {
-                echo "<div class ='error'>" .$errores["nacionalidad"] . "</div>";
-            }elseif (isset($valido["nacionalidad"])) {
-                echo "<div class ='valido'>" .$valido["nacionalidad"] . "</div>";
-            }
-        ?>
+        
         <br><br>
 
         <label for="idiomas[]">Idiomas:</label><br>
@@ -151,40 +170,27 @@
         <input type="checkbox" name="idiomas[]" value="Alemán" <?php echo (isset($_POST["idiomas"]) && in_array("Alemán", $_POST["idiomas"])) ? "checked" : ""; ?>>Alemán<br>
         <input type="checkbox" name="idiomas[]" value="Italiano" <?php echo (isset($_POST["idiomas"]) && in_array("Italiano", $_POST["idiomas"])) ? "checked" : ""; ?>>Italiano
 
-        <?php
-            if (isset($errores["idiomas"])) {
-                echo "<div class ='error'>" .$errores["idiomas"] . "</div>";
-            }elseif (isset($valido["idiomas"])) {
-                echo "<div class ='valido'>" .$valido["idiomas"] . "</div>";
-            }
-        ?>
+        
         <br><br>
 
         <label for="">Email:</label>
         <input type="text" name="email" value="<?php echo isset($_POST["email"]) ? htmlspecialchars($_POST["email"]) : ""; ?>">
-        <?php
-            if (isset($errores["email"])) {
-                echo "<div class ='error'>" .$errores["email"] . "</div>";
-            }elseif (isset($valido["email"])) {
-                echo "<div class ='valido'>" .$valido["email"] . "</div>";
-            }
-        ?>
+        
         <br><br>
 
         <label for="">Adjuntar foto:</label>
         <input type="file" name="foto">
         <?php
-        if (isset($errores["foto"])) {
-            echo "<div class='error'>" . $errores["foto"] . "</div>";
-        } elseif (isset($valido["foto"])) {
-            echo "<div class='valido'>" . $valido["foto"] . "</div>";
-        }
+            if (isset($_FILE["foto"])) {
+                echo '<img src="$nombreCompleto" alt="">';
+            }
         ?>
         <br><br>
         
         <input value="Enviar" type="submit" name="boton-enviar" >
         <input value="Limpiar" type="reset" name="boton-limpiar">
-        <input value="Validar" type="submit" name="validar" >
+        <input value="Validar" type="submit" name="validar">
+        
     </form>
 </body>
 </html>
