@@ -64,10 +64,10 @@
         if ($foto && !isset($errores['foto'])) {
             $nombreCompleto = $directorio . basename($foto["name"]);
             $extension = strtolower(pathinfo($nombreCompleto, PATHINFO_EXTENSION));
-            $arrayExt = ["jpg", "png", "gif"];
+            $arrayExt = ["jpg", "png", "gif" , "jpeg"];
 
             if (!in_array($extension, $arrayExt)) {
-                $errores["foto"] = "La foto no tiene una extensión correcta.";
+                $errores["foto"] = "Ésta vacío el campo o la extensión no es correcta.";
             } else {
                 move_uploaded_file($foto["tmp_name"], $nombreCompleto);
                 $rutaFoto = $nombreCompleto;
@@ -77,7 +77,7 @@
         } elseif ($foto && isset($foto["error"])) {
             $errores["foto"] = "Hubo un problema al subir la foto.";
         }
-
+        
         // Mostrar errores al validar
         if (isset($_POST["validar"])) {
             foreach ($errores as $error) {
@@ -124,6 +124,7 @@
         }
     </style>
 <body>
+
     <form action="Ejer25.php" method="POST" enctype="multipart/form-data">
 
         <label for="">Nombre completo:</label>
