@@ -1,0 +1,25 @@
+<?php
+    session_start(); 
+
+    echo "<h1>Bienvenido " . $_SESSION["nombre"]  . "</h1>";
+
+    $sueldos = array_column($_SESSION["empleados"], "sueldo"); 
+
+    $minimo = min($sueldos); 
+    $maximo = max($sueldos); 
+
+    $empleadoMinimo = "";
+    $empleadoMaximo = "";
+    foreach ($_SESSION["empleados"] as $empleado) {
+        if ($empleado["sueldo"] == $minimo) {
+            $empleadoMinimo = $empleado;
+        }
+
+        if ($empleado["sueldo"] == $maximo) {
+            $empleadoMaximo = $empleado;
+        }
+    }
+    
+    echo "El empleado con el sueldo mínimo es: " . $empleadoMinimo['nombre'] . " con un sueldo de " . $empleadoMinimo["sueldo"];
+    echo "El empleado con el sueldo mínimo es: " . $empleadoMinimo['nombre'] . " con un sueldo de " . $empleadoMaximo["sueldo"];
+?>  
