@@ -23,7 +23,7 @@
         
         $_SESSION["nombre"] = $_POST["nombre"];
         $_SESSION["perfil"] = $_POST["perfil"];
-        $_SESSION["trabajadores"] = $empleados;
+        $_SESSION["empleados"] = $empleados;
         
         switch ($_SESSION["perfil"]) {
             case "Gerente":
@@ -65,8 +65,6 @@
             <option value="Responsable de Nóminas">Responsable de Nóminas</option>
         </select>
         <br><br>
-        <label>Salario:</label><br>
-        <input type="number" name="sueldo" require>
 
         <input value="Enviar" type="submit" name="boton-enviar" id="boton-enviar">    </form>
 </body>
