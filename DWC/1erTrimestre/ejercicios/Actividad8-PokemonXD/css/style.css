@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "pokemon";
+    src: url("../fonts/Ketchum.otf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "pokemon", sans-serif;
+    background-color: #e0f7fa; /* Fondo azul claro similar a Pokémon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #84b7ff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
+}
+
+#cartasMachine, #cartasPlayer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+#machineCards, #playerCards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Siempre 5 columnas */
+    gap: 20px;
+    justify-items: center;
+    margin-top: 10px;
+}
+
+#cartasMaquina, #cartaJugador {
+    width: 120px;
+    height: 160px;
+    background-color: #ffeb3b; /* Amarillo brillante, como los colores de Pokémon */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1976d2; /* Azul Pokémon */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Sombra para hacer el texto más visible */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cartasMaquina:hover, #cartaJugador:hover {
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el ratón */
+}
+
+#campoBatalla {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d32f2f; /* Rojo fuerte, como los colores de los Pokémon más poderosos */
+    margin-top: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #ffcc00, #ff5722); /* Fondo de gradiente para dar color */
+    border: 3px solid #d32f2f; /* Borde fuerte que resalta el área */
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    position: relative;
+    z-index: 1;
+}
+
+#campoBatalla::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Capa translúcida para simular una capa de niebla */
+    border-radius: 15px;
+    z-index: -1;
+}
+
+#vs {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff5722; /* Naranja vibrante */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 900px) {
+    #app {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    #machineCards, #playerCards {
+        grid-template-columns: repeat(5, 1fr); /* Mantiene siempre 5 columnas */
+        gap: 10px;
+    }
+
+    #cartasMaquina, #cartaJugador {
+        width: 100px;
+        height: 130px;
+        font-size: 18px;
+    }
+
+    #campoBatalla {
+        font-size: 28px;
+        padding: 20px;
+    }
+
+    #vs {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    #machineCards, #playerCards {
+        grid-template-columns: repeat(5, 1fr); /* Mantiene siempre 5 columnas */
+    }
+
+    #cartasMaquina, #cartaJugador {
+        width: 80px;
+        height: 100px;
+        font-size: 16px;
+    }
+
+    #campoBatalla {
+        font-size: 22px;
+        padding: 15px;
+    }
+
+    #vs {
+        font-size: 30px;
+    }
+}
