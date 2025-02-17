@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Battle</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <div id="cartasMachine">
+            <div id="totalMachine">0</div>
+            <div id="machineCards">
+                    <div id="cartasMaquina"></div>
+                    <div id="cartasMaquina"></div>
+                    <div id="cartasMaquina"></div>
+                    <div id="cartasMaquina"></div>
+                    <div id="cartasMaquina"></div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="campoBatalla">
+                <div id="jugadaMachine">
+                    <div class="pokemonContainer">
+                        <div class="imagenGrande">
+                            <img v-if="jugadaMachine" :src="jugadaMachine.image" :alt="jugadaMachine.name">
+                        </div>
+                        <div class="statsContainer" v-if="statsMachine">
+                            <div class="stat"><img src="./img/salud.png" alt="Vida"> {{ statsMachine.hp }}</div>
+                            <div class="stat"><img src="./img/escudo.png" alt="Defensa"> {{ statsMachine.attack }}</div>
+                            <div class="stat"><img src="./img/rapideza.png" alt="Velocidad"> {{ statsMachine.speed }}</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="vs">VS</div>
+        
+                <div id="jugadaPlayer">
+                    <div class="pokemonContainer">
+                        <div class="imagenGrande">
+                            <img v-if="jugadaPlayer" :src="jugadaPlayer.image" :alt="jugadaPlayer.name">
+                        </div>
+                        <div class="statsContainer" v-if="statsPlayer">
+                            <div class="stat"><img src="./img/salud.png" alt="Vida"> {{ statsPlayer.hp }}</div>
+                            <div class="stat"><img src="./img/escudo.png" alt="Defensa"> {{ statsPlayer.attack }}</div>
+                            <div class="stat"><img src="./img/rapideza.png" alt="Velocidad"> {{ statsPlayer.speed }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="cartasPlayer">
+            <div id="totalPlayer">0</div>
+            <div id="playerCards">
+                <div id="cartaJugador" v-for="(pokemon, index) in pokemonNames" 
+                    :key="index" 
+                    @click="seleccionarCarta(pokemon)"
+                    :class="['cartaJugador', { 'carta-seleccionada': pokemon.selected }]">
+                    <div class="textoJugador">
+                        <img :src="pokemon.image" alt="Pokemon Image">
+                        <p v-if="!pokemon.selected">{{ pokemon.name }}</p> <!-- Solo muestra el nombre si no ha sido seleccionado -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="cartel">x</div>
+    </div>
+</body>
+</html>
