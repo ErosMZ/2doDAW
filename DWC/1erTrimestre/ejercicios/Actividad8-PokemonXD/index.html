@@ -93,7 +93,12 @@
         {{ move }}
       </button>
     </div>
-    
+    <div v-if="modalVisible" class="modal">
+      <div class="modal-content">
+        <p>{{ modalMessage }}</p>
+        <button id="modal-button" @click="closeModal">{{ modalButtonText }}</button>
+      </div>
+    </div>
   </div>
   
 </body>
